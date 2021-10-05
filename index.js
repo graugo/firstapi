@@ -1,6 +1,7 @@
 const express = require(`express`);
 const app = express();
 const controller = require(`./controllers/firstController`)
+require(`dotenv`)
 
 app.get(`/`, controller.helloWorld)
 app.listen(process.env.PORT || 3000, function () {
