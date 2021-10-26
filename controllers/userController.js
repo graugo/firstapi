@@ -2,11 +2,11 @@ const users = [
     {id: '1', name: 'john'},
     {id: '2', name: 'dave'},
     {id: '3', name: 'lindt'},
-]
+];
 const status = {
     ok: 200,
     notFound: 404,
-}
+};
 
 module.exports = {
     list: (req, res) => {
