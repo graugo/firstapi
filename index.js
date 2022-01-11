@@ -1,16 +1,16 @@
 // module
 const express = require(`express`);
-const app = express();
-require(`dotenv`)
-// controllers
-const controller = require(`./controllers/firstController`);
-// get request through controller
-app.get(`/`, controller.helloWorld)
+require(`dotenv`).config();
+const connect = require(`./database/connect`);
 
-// routes
-// acces a través de localhost:3000/api/v1/user/[ruta establerta a fitxer]
+const app = express();
+app.use(express.urlencoded({extended:true}));
+app.use(express.json({extended:true}));
+
+connect.createConnection();
+
 app.use('/api/v1/user', require('./routes/userRoutes'));
-app.use('/api/v1/time', require('./routes/timeRoutes'))
+app.use('/api/v1/film', require('./routes/filmRoutes'));
 
 // setup de la api al port 3000
 app.listen(process.env.PORT || 3000, function () {
